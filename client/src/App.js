@@ -33,10 +33,16 @@ class App extends Component {
      //this.setState({val:vals})
       // Update state with the result.
       this.setState({ storageValue: response });
+
+      //Array
       const Array = await this.state.contract.methods.getValArr().call()
       console.log(await this.state.contract.methods.getValArr().call())
       this.setState({valArr:Array})
-      
+      //Map
+     /* const MapArr=await this.state.contract.methods.mapValues(0).call()
+      for(let i=0;i<Array.length;i++){
+      console.log(await this.state.contract.methods.mapValues(i).call())
+      }*/
     } catch (error) {
       // Catch any errors for any of the above operations.
       alert(
@@ -93,6 +99,9 @@ class App extends Component {
           {console.log("reder method "+this.MapLis)}
               <Items MapLis={this.state.valArr}/>
         
+        </div>
+        <div>
+          <h1>Map Values</h1>
         </div>
       </div>
       
