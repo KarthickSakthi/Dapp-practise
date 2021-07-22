@@ -5,7 +5,7 @@ import Items from "./components/Items"
 import "./App.css";
 
 class App extends Component {
-  state = { storageValue: 0, web3: null, accounts: null, contract: null,val:0 ,valArr:[]};
+  state = { storageValue: 0, web3: null, accounts: null, contract: null,val:0 ,valArr:[],MappingValArr:[]};
 
   componentDidMount = async () => {
     try {
@@ -39,10 +39,13 @@ class App extends Component {
       console.log(await this.state.contract.methods.getValArr().call())
       this.setState({valArr:Array})
       //Map
-     /* const MapArr=await this.state.contract.methods.mapValues(0).call()
+      const arr=[];
       for(let i=0;i<Array.length;i++){
+      const MapArr=await this.state.contract.methods.mapValues(i).call()
       console.log(await this.state.contract.methods.mapValues(i).call())
-      }*/
+      arr.push(MapArr)
+      }
+      this.setState({MappingValArr:arr})
     } catch (error) {
       // Catch any errors for any of the above operations.
       alert(
@@ -96,12 +99,14 @@ class App extends Component {
         </div>
         <div>
           <h1>Array values</h1>
-          {console.log("reder method "+this.MapLis)}
-              <Items MapLis={this.state.valArr}/>
+          {console.log("render method Array "+this.state.valArr)}
+          <Items MapLis={this.state.valArr}/>
         
         </div>
         <div>
           <h1>Map Values</h1>
+          {console.log("render method mapping "+this.state.MappingValArr)}
+          <Items MapLis={this.state.MappingValArr}/>
         </div>
       </div>
       
