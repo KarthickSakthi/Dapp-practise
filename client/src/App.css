@@ -1,11 +1,23 @@
 .App {
   text-align: center;
 }
-
+.Array{
+ 
+  display: flex;
+  flex-wrap: wrap;
+}
+.Map{
+ 
+  display: flex;
+  flex-wrap: wrap;
+}
 .App-logo {
   height: 40vmin;
 }
-
+table, td,th {
+  border: 1px solid black;
+  border-collapse:collapse;
+}
 .App-header {
   background-color: #282c34;
   min-height: 100vh;

@@ -97,17 +97,27 @@ class App extends Component {
           <input type="text" id="input"/>
           <button type="submit" onClick={this.runExample}>Submit</button>
         </div>
-        <div>
-          <h1>Array values</h1>
-          {console.log("render method Array "+this.state.valArr)}
-          <Items MapLis={this.state.valArr}/>
+        <div >
+         <table>
+           <tr>
+             <th> Array Values</th>
+             <th>Map Values</th>
+           </tr>
+           <tr>
+           <td>
+           {console.log("render method Array "+this.state.valArr)}
+          <Items MapLis={this.state.valArr} 
+          head={"Array"}/>
+           </td>   
         
-        </div>
-        <div>
-          <h1>Map Values</h1>
+           <td>
           {console.log("render method mapping "+this.state.MappingValArr)}
-          <Items MapLis={this.state.MappingValArr}/>
-        </div>
+          <Items MapLis={this.state.MappingValArr}
+           head={"Map"}/>
+           </td>
+           </tr>
+        </table>
+      </div>
       </div>
       
     );
@@ -116,3 +126,22 @@ class App extends Component {
 }
 
 export default App;
+
+{
+  /*
+ <table>
+          <tr>
+          <th>
+          <h1>Array values</h1>
+          {console.log("render method Array "+this.state.valArr)}
+          <Items MapLis={this.state.valArr}/>
+        </th>
+         <th>
+          <h1>Map Values</h1>
+          {console.log("render method mapping "+this.state.MappingValArr)}
+          <Items MapLis={this.state.MappingValArr}/>
+        </th>
+        </tr>
+      </table>
+  */
+}
